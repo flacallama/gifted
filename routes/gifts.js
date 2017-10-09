@@ -10,6 +10,10 @@ router.get('/', function(req, res, next) {
   })
 })
 
+router.post('/', function(req, res, next) {
+  knex.raw('INSERT INTO gifts ("creator_id", "giftee_id", "idea") VALUES ()')
+})
+
 
 
 
