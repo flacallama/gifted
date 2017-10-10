@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 })
 
 router.post('/', function(req, res, next) {
-  console.log('entered in post', req.body)
+  console.log('entered in post add', req.body)
   knex('gifts').insert({creator_id: req.body.creator_id, giftee_id: req.body.giftee_id, idea: req.body.idea, idea_notes: req.body.idea_notes, is_past: null, date_given: null}).returning("*").then(data => {
     knex('gifts').select().then(gifts=> res.send(gifts))
   })
@@ -31,18 +31,20 @@ router.post('/:id/edit', function(req, res, next) {
     .update({
       "idea": req.body.idea,
       "idea_notes": req.body.idea_notes,
-      "is_past":  req.body.is_past,
-      "date_given": req.body.is_given
+      "is_past":  req.body.is_past
+    })
+    .then(data => {
+      knex('gifts').select().then(gifts => res.send(gifts))
     })
 })
 
 
-knex('books')
-.where('published_date', '<', 2000)
-.update({
-  status: 'archived',
-  thisKeyIsSkipped: undefined
-})
+// knex('books')
+// .where('published_date', '<', 2000)
+// .update({
+//   status: 'archived',
+//   thisKeyIsSkipped: undefined
+// })
 
 
 

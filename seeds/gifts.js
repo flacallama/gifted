@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('gifts').insert([
-        {creator_id: 1, giftee_id: 1, idea: "new shoes", idea_notes: 'mom likes shoes', is_past: true, date_given: null, xmas: true},
+        {creator_id: 1, giftee_id: 1, idea: "new shoes", idea_notes: 'mom likes shoes', is_past: false, date_given: null, xmas: true},
         {creator_id: 1, giftee_id: 1, idea: "mink stoll", idea_notes: 'mom likes soft things', is_past: true, date_given: '12/25/2016', received: false},
         {creator_id: 1, giftee_id: 1, idea: "iPhone 10", idea_notes: 'iPhone 4s is scratched', is_past: false, date_given: null, received: true, mothersday: true},
         {creator_id: 1, giftee_id: 2, idea: "Horse", idea_notes: 'Dressage is an emerging interest', is_past: true, date_given: 12/25/12, received: false},

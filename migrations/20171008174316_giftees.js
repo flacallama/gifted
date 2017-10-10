@@ -12,9 +12,9 @@ exports.up = function(knex, Promise) {
     table.string('birthdate');
     table.boolean('xmas').defaultTo( false );
     table.boolean('hanukka').defaultTo( false );
-    table.string('mothersday');
-    table.string('fathersday');
-    table.string('valentines');
+    table.boolean('mothersday');
+    table.boolean('fathersday');
+    table.boolean('valentines');
     table.boolean('anniday').defaultTo( false );
     table.string('annidate');
     table.timestamp('created_at').default(knex.fn.now());
