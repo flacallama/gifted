@@ -24,6 +24,27 @@ router.post('/:id/delete', function(req, res, next) {
   })
 })
 
+router.post('/:id/edit', function(req, res, next) {
+  console.log("entered edit post");
+  knex('gifts')
+    .where('id', req.params.id)
+    .update({
+      "idea": req.body.idea,
+      "idea_notes": req.body.idea_notes,
+      "is_past":  req.body.is_past,
+      "date_given": req.body.is_given
+    })
+})
+
+
+knex('books')
+.where('published_date', '<', 2000)
+.update({
+  status: 'archived',
+  thisKeyIsSkipped: undefined
+})
+
+
 
   // router.post('/:id/delete', (req, res, next) => {
   //   knex('comments').where('id', req.params.id).del().then(() => {
