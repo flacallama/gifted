@@ -7,6 +7,8 @@ exports.up = function(knex, Promise) {
     table.string('idea_notes');
     table.boolean('is_past');
     table.string('date_given');
+    table.boolean('received');
+    table.timestamp('created_at').default(knex.fn.now());
 
   })
 };

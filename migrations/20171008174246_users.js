@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
     table.string('anniday');
     table.boolean('xmas');
     table.boolean('hannuka');
+    table.timestamp('created_at').default(knex.fn.now());
 
 
   })

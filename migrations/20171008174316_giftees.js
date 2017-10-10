@@ -17,6 +17,7 @@ exports.up = function(knex, Promise) {
     table.string('valentines');
     table.boolean('anniday');
     table.string('annidate');
+    table.timestamp('created_at').default(knex.fn.now());
 
   })
 };
