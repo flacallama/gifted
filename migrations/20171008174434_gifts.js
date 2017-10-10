@@ -18,6 +18,7 @@ exports.up = function(knex, Promise) {
     table.boolean('graduation').defaultTo( false );
     table.boolean('barmitzvah').defaultTo( false );
     table.boolean('bahmitzvah').defaultTo( false );
+    table.boolean('babyshower').defaultTo( false );
     table.string('other_occasion');
     table.timestamp('created_at').default(knex.fn.now());
 

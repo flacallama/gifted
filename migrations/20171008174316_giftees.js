@@ -8,14 +8,14 @@ exports.up = function(knex, Promise) {
     table.string('budget');
     table.string('email');
     table.integer('age');
-    table.boolean('birthday');
+    table.boolean('birthday').defaultTo( false );
     table.string('birthdate');
-    table.boolean('xmas');
-    table.boolean('hanukka');
+    table.boolean('xmas').defaultTo( false );
+    table.boolean('hanukka').defaultTo( false );
     table.string('mothersday');
     table.string('fathersday');
     table.string('valentines');
-    table.boolean('anniday');
+    table.boolean('anniday').defaultTo( false );
     table.string('annidate');
     table.timestamp('created_at').default(knex.fn.now());
 
