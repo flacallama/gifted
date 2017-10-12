@@ -11,8 +11,32 @@ router.get('/', function(req, res, next) {
 })
 
 router.post('/', function(req, res, next) {
-  console.log('entered in post add', req.body)
-  knex('giftees').insert({creator_id: req.body.creator_id, first_name: req.body.first_name, last_name: req.body.last_name, relationship: req.body.relationship, budget: req.body.budget, email: req.body.email, age: req.body.age, birthday: req.body.birthday, birthdate: req.body.birthdate, xmas: req.body.xmas, hanukka: req.body.hanukka, mothersday: req.body.mothersday, fathersday: req.body.fathersday, valentines: req.body.valentines, anniday: req.body.anniday, annidate: req.body.annidate}).returning("*").then(data => {
+  console.log('entered in giftee post add', req.body)
+  knex('giftees').insert({
+    creator_id: req.body.creator_id,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    relationship: req.body.relationship,
+    email: req.body.email,
+    age: req.body.age,
+    birthday: req.body.birthday,
+    birthdate: req.body.birthdate,
+    birthday_price: req.body.birthday_price,
+    xmas: req.body.xmas,
+    xmas_price: req.body.xmas_price,
+    hanukka: req.body.hanukka,
+    hanukka_price: req.body.hanukka_price,
+    mothersday: req.body.mothersday,
+    mothersday_price: req.body.mothersday_price,
+    fathersday: req.body.fathersday,
+    fathersday_price: req.body.fathersday_price,
+    valentines: req.body.valentines,
+    valentines_price: req.body.valentines_price,
+    anniday: req.body.anniday,
+    annidate: req.body.annidate,
+    anniday_price: req.body.anniversary,
+    budget: req.body.budget
+    }).returning("*").then(data => {
     knex('giftees').select().then(giftees=> res.send(giftees))
   })
 })

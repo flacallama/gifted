@@ -1,22 +1,29 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('giftees', function(table){
     table.increments();  // ID column
-    table.integer('creator_id');
-    table.string('first_name');
-    table.string('last_name');
-    table.string('relationship');
-    table.string('budget');
-    table.string('email');
-    table.integer('age');
+    table.integer('creator_id').defaultTo( null );
+    table.string('first_name').defaultTo( null );
+    table.string('last_name').defaultTo( null );
+    table.string('relationship').defaultTo( null );
+    table.string('budget').defaultTo( null );
+    table.string('email').defaultTo( null );
+    table.integer('age').defaultTo( null );
     table.boolean('birthday').defaultTo( false );
-    table.string('birthdate');
+    table.timestamp('birthdate').defaultTo( null );
+    table.integer('birthday_price').defaultTo( null );
     table.boolean('xmas').defaultTo( false );
+    table.integer('xmas_price').defaultTo( null )
     table.boolean('hanukka').defaultTo( false );
-    table.boolean('mothersday');
-    table.boolean('fathersday');
-    table.boolean('valentines');
+    table.integer('hanukka_price').defaultTo( null )
+    table.boolean('mothersday').defaultTo( false );
+    table.integer('mothersday_price').defaultTo( null )
+    table.boolean('fathersday').defaultTo( false );
+    table.integer('fathersday_price').defaultTo( null )
+    table.boolean('valentines').defaultTo( false );
+    table.integer('valentines_price').defaultTo( null )
     table.boolean('anniday').defaultTo( false );
-    table.string('annidate');
+    table.timestamp('annidate').defaultTo( null );
+    table.integer('anniday_price').defaultTo( null )
     table.timestamp('created_at').default(knex.fn.now());
 
   })
