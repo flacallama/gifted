@@ -34,7 +34,7 @@ router.post('/', function(req, res, next) {
     valentines_price: req.body.valentines_price,
     anniday: req.body.anniday,
     annidate: req.body.annidate,
-    anniday_price: req.body.anniversary,
+    anniday_price: req.body.anniday_price,
     budget: req.body.budget
     }).returning("*").then(data => {
     knex('giftees').select().then(giftees=> res.send(giftees))
