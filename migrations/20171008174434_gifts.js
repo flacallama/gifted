@@ -1,12 +1,12 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('gifts', function(table){
     table.increments();  // ID column
-    table.integer('creator_id');
-    table.integer('giftee_id');
-    table.string('idea');
-    table.string('idea_notes');
-    table.boolean('is_past');
-    table.string('date_given');
+    table.integer('creator_id').defaultTo( null );
+    table.integer('giftee_id').defaultTo( null );
+    table.string('idea').defaultTo( null );
+    table.string('idea_notes').defaultTo( null );
+    table.boolean('is_past').defaultTo( null );
+    table.string('date_given').defaultTo( null );
     table.boolean('received').defaultTo( false );
     table.boolean('birthday').defaultTo( false );
     table.boolean('xmas').defaultTo( false );
@@ -19,7 +19,7 @@ exports.up = function(knex, Promise) {
     table.boolean('barmitzvah').defaultTo( false );
     table.boolean('bahmitzvah').defaultTo( false );
     table.boolean('babyshower').defaultTo( false );
-    table.string('other_occasion');
+    table.string('other_occasion').defaultTo( null );
     table.timestamp('created_at').default(knex.fn.now());
 
 
