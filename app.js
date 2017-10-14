@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var gifts = require('./routes/gifts');
 var giftees = require('./routes/giftees');
+var occasions = require('./routes/occasions');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/gifts', gifts);
 app.use('/giftees', giftees);
+app.use('/occasions', occasions);
 
 
 
