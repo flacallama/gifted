@@ -4,16 +4,16 @@ var knex = require('../db/knex.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  knex.raw('SELECT * from occasions')
+  knex.raw('SELECT * from occasions join giftees on giftees.id = occasions.giftee_id')
   .then(function(occasions){
     res.json(occasions)
   })
 })
 
 router.post('/', function(req, res, next) {
-  console.log('entered in giftee post add', req.body)
+  console.log('entered in occasions post add', req.body)
   knex('occasions').insert({
-    creator_id: req.body.creator_id,
+    giftee_id: req.body.giftee_id,
     birthday: req.body.birthday,
     birthdate: req.body.birthdate,
     birthday_price: req.body.birthday_price,
@@ -29,8 +29,7 @@ router.post('/', function(req, res, next) {
     valentines_price: req.body.valentines_price,
     anniday: req.body.anniday,
     annidate: req.body.annidate,
-    anniday_price: req.body.anniday_price,
-    budget: req.body.budget
+    anniday_price: req.body.anniday_price
     }).returning("*").then(data => {
     knex('occasions').select().then(occasions=> res.send(occasions))
   })
