@@ -4,8 +4,8 @@ module.exports = {
     client: 'pg',
     connection: {
       database: 'gifted',
-      // host: 'https://gifted-q3-project.herokuapp.com/'
-      host: '127.0.0.1'
+      host: 'https://gifted-q3-project.herokuapp.com/'
+      // host: '127.0.0.1'
     },
     seeds: {
       directory: './seeds'
