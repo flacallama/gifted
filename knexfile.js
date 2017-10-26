@@ -4,42 +4,21 @@ module.exports = {
     client: 'pg',
     connection: {
       database: 'gifted',
-      host: '127.0.0.1'
+      host: 'https://gifted-q3-project.herokuapp.com/'
     },
     seeds: {
       directory: './seeds'
     }
   },
 
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'gifted',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
-
   production: {
     client: 'pg',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    connection: process.env.DATABASE_URL,
     migrations: {
-      tableName: 'knex_migrations'
+      directory: './migrations'
+    },
+    seeds: {
+      directory: './seeds'
     }
   }
 
