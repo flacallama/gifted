@@ -1,4 +1,8 @@
 # gifted
+
+video presentation of Gifted: https://youtu.be/ILNvJ3CbZds
+live web app: https://gifted-reactapp.herokuapp.com/ (takes 45 seconds for servers to wake up)
+
 Server - A shopping app built on react for quarter 3 galvanize project
 
 Quarter 3 Project - Galvanize Web Development Course g58
